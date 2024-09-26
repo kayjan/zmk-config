@@ -44,7 +44,7 @@
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
-			display-name = "hello";
+			display-name = "stay";
         };
 
         lower_layer {
@@ -63,7 +63,7 @@
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-			display-name = "stay";
+			display-name = "hydrated";
         };
 
         raise_layer {
@@ -82,7 +82,7 @@
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRI_INC C_BRI_DEC>;
-			display-name = "hydrated";
+			display-name = "happy";
         };
     };
 };
