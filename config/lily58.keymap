@@ -44,7 +44,7 @@
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
-			display-name = "sup sup oi";
+			display-name = "hello";
         };
 
         lower_layer {
@@ -63,7 +63,7 @@
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-			display-name = "low sup";
+			display-name = "stay";
         };
 
         raise_layer {
@@ -82,7 +82,7 @@
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRI_INC C_BRI_DEC>;
-			display-name = "high sup";
+			display-name = "hydrated";
         };
     };
 };
