@@ -17,6 +17,12 @@
 	            bindings = <&kp BSPC>, <&kp DELETE>;
 	            mods = <(MOD_LGUI|MOD_RGUI)>;
 	        };
+	        esctil: esc_tilde {
+	            compatible = "zmk,behavior-mod-morph";
+	            #binding-cells = <0>;
+	            bindings = <&kp ESC>, <&kp TILDE>;
+	            mods = <(LSHFT|RSHFT)>;
+	        };
 	    };
 
 	keymap {
@@ -30,7 +36,7 @@
 // | SHIFT |  Z   |   X   |  C   |  V   |  B   |   MUTE |  |  PLAY |  N    |  M    |  ,    |  .    |   /   | SHIFT |
 //                        | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE | BSPC  | GUI   |
             bindings = <
-&kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                     &kp N6 &kp N7   &kp N8    &kp N9  &kp N0   &kp MINUS
+&esctil   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                     &kp N6 &kp N7   &kp N8    &kp N9  &kp N0   &kp MINUS
 &kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                      &kp Y  &kp U    &kp I     &kp O   &kp P    &kp GRAVE
 &kp LCTRL &kp A  &kp S  &kp D    &kp F    &kp G                      &kp H  &kp J    &kp K     &kp L   &kp SEMI &kp SQT
 &kp LSHFT &kp Z  &kp X  &kp C    &kp V    &kp B  &kp C_MUTE &kp C_PP &kp N  &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
@@ -44,15 +50,15 @@
 // ---------------------------------------------------------------------------------------------------------------
 // | BTCLR |  BT1  | BT2  |  BT3 |  BT4 |  BT5 |                   |       |       |       |       |       |   +   |
 // |  F1   |   F2  |  F3  |  F4  |  F5  |  F6  |                   |  F7   |  F8   |  F9   |  "["  |  "]"  |   \   |
-// |   `   |   !   |  @   |  #   |  $   |  %   |                   |  ^    |  &    |  *    |  (    |   )   |   ~   |
-// |       |  UNDO | REDO | COPY | PASTE| BSPC |        |  |       |       |       |       |       |       |       |
+// |   `   |   !   |  @   |  #   |  $   |  %   |                   |  ^    |  &    |  *    |  (    |   )   |   -   |
+// | HIGHL |  UNDO | REDO | COPY | PASTE| BSPC |        |  |       |       |       |       |       |       |       |
 //                        |      |      |      |        |  |       |       |       |       |
             bindings = <
-&bt BT_CLR &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3 &bt BT_SEL 4                 &trans    &trans    &trans    &trans    &trans    &kp PLUS
-&kp F1     &kp F2        &kp F3        &kp F4        &kp F5       &kp F6                       &kp F7    &kp F8    &kp F9    &kp LBKT  &kp RBKT  &kp BSLH
-&kp GRAVE  &kp EXCL      &kp AT        &kp HASH      &kp DOLLAR   &kp PRCNT                    &kp CARET &kp AMPS  &kp ASTRK &kp LPAR  &kp RPAR  &kp TILDE
-&trans     &kp LG(Z)     &kp LG(LS(Z)) &kp LG(C)     &kp LG(V)    &bspcdel  &trans   &trans    &trans    &trans    &trans    &trans    &trans    &trans
-                                       &trans        &trans       &trans    &trans   &trans    &trans    &trans    &trans
+&bt BT_CLR       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3 &bt BT_SEL 4                 &trans    &trans    &trans    &trans    &trans    &kp PLUS
+&kp F1           &kp F2        &kp F3        &kp F4        &kp F5       &kp F6                       &kp F7    &kp F8    &kp F9    &kp LBKT  &kp RBKT  &kp BSLH
+&kp GRAVE        &kp EXCL      &kp AT        &kp HASH      &kp DOLLAR   &kp PRCNT                    &kp CARET &kp AMPS  &kp ASTRK &kp LPAR  &kp RPAR  &kp MINUS
+&kp LG(LS(LEFT)) &kp LG(Z)     &kp LG(LS(Z)) &kp LG(C)     &kp LG(V)    &bspcdel  &trans   &trans    &trans    &trans    &trans    &trans    &trans    &trans
+                                             &trans        &trans       &trans    &trans   &trans    &trans    &trans    &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -66,7 +72,7 @@
 // |   F7  |   F8  |  F9  |  F10 |  F11 |  F12 |        |  |       |  1    |   2   |   3   |  <-   |   v   |   ->  |
 //                        |      |      |      |        |  |       |       |   0   |   =   |
             bindings = <
-&kp GLOBE &kp C_AC_DESKTOP_SHOW_ALL_WINDOWS &kp C_AC_DESKTOP_SHOW_ALL_APPLICATIONS &trans  &trans  &kp C_PWR                    &kp RG(RS(4)) &trans    &trans    &trans      &kp PG_UP &kp HOME
+&kp GLOBE &kp C_AC_DESKTOP_SHOW_ALL_WINDOWS &kp C_AC_DESKTOP_SHOW_ALL_APPLICATIONS &trans  &trans  &kp K_PWR                    &kp LG(LS(4)) &trans    &trans    &trans      &kp PG_UP &kp HOME
 &trans    &trans &trans &trans  &trans  &trans                       &kp N7        &kp N8    &kp N9    &kp MINUS   &kp PG_DN &kp END
 &kp F1    &kp F2 &kp F3 &kp F4  &kp F5  &kp F6                       &kp N4        &kp N5    &kp N6    &kp KP_PLUS &kp UP    &trans
 &kp F7    &kp F8 &kp F9 &kp F10 &kp F11 &kp F12   &trans   &trans    &kp N1        &kp N2    &kp N3    &kp LEFT    &kp DOWN  &kp RIGHT
